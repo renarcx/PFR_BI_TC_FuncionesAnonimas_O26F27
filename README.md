@@ -465,6 +465,9 @@ productos
   .take(3)
 // Tecnologia: 18500.00 / Muebles: 5550.00 / Accesorios: 1575.00
 
+<img width="820" height="517" alt="image" src="https://github.com/user-attachments/assets/8ac38557-ed70-418f-96f7-500d8a38e48c" />
+
+
 
 1. groupBy(p => p.categoria) reúne los productos de cada categoría en un Map.
 2. map { case (cat, ps) => ... } convierte cada grupo en una pareja (categoría, valor), sumando precio * stock de sus productos.
