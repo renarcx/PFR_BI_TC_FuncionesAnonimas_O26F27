@@ -193,6 +193,9 @@ list(filter(lambda p: p.precio > 100, productos))
 
 **Salida:** Laptop - 850.00, Monitor - 220.00, Silla - 130.00, Escritorio - 310.00
 
+<img width="434" height="101" alt="image" src="https://github.com/user-attachments/assets/f389de9d-b101-4ae2-a900-80402e979d5a" />
+
+
 ### 3.2 Transformación: ¿cómo convierto cada elemento en otro valor?
 
 **Situación real:** una tienda debe imprimir en la etiqueta el precio final con impuesto (aquí, un IVA de ejemplo del 15%).
@@ -210,6 +213,9 @@ productos.stream().map(p -> p.nombre() + " -> " + fmt(p.precio() * 1.15))
 map(lambda p: f"{p.nombre} -> {fmt(p.precio * 1.15)}", productos)
 
 **Salida (primeros 4):** Laptop -> 977.50, Mouse -> 17.25, Teclado -> 51.75, Monitor -> 253.00
+
+<img width="434" height="84" alt="image" src="https://github.com/user-attachments/assets/ce8f5be9-216c-47f1-8ff7-4487912868a3" />
+
 
 ### 3.3 Validación: ¿existe alguno? ¿todos cumplen?
 
@@ -233,6 +239,9 @@ any(map(lambda p: p.stock == 0, productos))         all(map(lambda p: p.precio >
   
 - Todos cuestan mas de 1: false (el lápiz cuesta 0.80)
 
+  <img width="429" height="54" alt="image" src="https://github.com/user-attachments/assets/61cab736-1016-4442-946c-98cc0beeb47a" />
+
+
 ### 3.4 Conteo: ¿cuántos cumplen una condición?
 
 **Situación real:** el encargado de compras quiere saber cuántos productos necesitan reposición (stock menor a 20).
@@ -250,6 +259,9 @@ productos.stream().filter(p -> p.stock() < 20).count()      // no existe count(c
 len(list(filter(lambda p: p.stock < 20, productos)))        # no existe count(condición)
  
 **Salida:** Productos con poco stock: 4
+
+<img width="429" height="38" alt="image" src="https://github.com/user-attachments/assets/8ce8713e-18ef-4c4e-a7c0-dadccca4e856" />
+
 
 ### 3.5 Extremos: ¿cuál es el mejor o el peor según un criterio?
 
@@ -272,6 +284,9 @@ max(productos, key=lambda p: p.precio)      min(productos, key=lambda p: p.preci
 - Mas caro: Laptop (850.00) 
 - Mas barato: Lapiz (0.80)`
 
+  <img width="429" height="51" alt="image" src="https://github.com/user-attachments/assets/e6f96e18-a9b9-435f-a8e4-5a91bd5ceb81" />
+
+
 ### 3.6 Aplanamiento: juntar en una sola lista los resultados de cada elemento
 
 **Situación real:** cada pedido trae su propia lista de productos; para el reporte de ventas se necesita una lista única de todos los productos vendidos.
@@ -289,6 +304,9 @@ pedidos.stream().flatMap(ped -> ped.items().stream()).toList()
 list(chain.from_iterable(map(lambda ped: ped.items, pedidos)))      # Python no tiene flatMap
  
 **Salida:** Laptop, Mouse, Mouse, Teclado, Mochila, Cuaderno, Lapiz, Mouse y Productos distintos vendidos: 6
+
+<img width="651" height="54" alt="image" src="https://github.com/user-attachments/assets/82ad6858-777d-4c7e-bfe7-5631b3e31573" />
+
 
 ### 3.7 Acumulación: un valor que resume la lista y cómo evoluciona
 
@@ -317,6 +335,9 @@ list(accumulate(productos, lambda acc, p: acc + p.precio * p.stock, initial=0.0)
 - Valor total del inventario: 27162.50
 - 
 - Acumulado (primeros 5): 8500.00, 10300.00, 13000.00, 18500.00, 20450.00
+
+<img width="651" height="69" alt="image" src="https://github.com/user-attachments/assets/f7b1085a-cdae-4fd1-bdf2-c49fdaf55521" />
+
 
 -------------------
 ## Parte 4 – Ampliar: cuatro operaciones nuevas
