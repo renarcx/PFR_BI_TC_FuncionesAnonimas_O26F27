@@ -181,7 +181,10 @@ de los 7 tipos de la siguiente tabla:
 
 ### scala
 
-productos.filter(p => p.precio > 100)                                  
+productos.filter(p => p.precio > 100)  
+
+<img width="467" height="110" alt="image" src="https://github.com/user-attachments/assets/2f875e9e-5c5e-4c03-82cc-6bf270879801" />
+
 
 ### java
 
@@ -192,7 +195,10 @@ productos.stream().filter(p -> p.precio() > 100).toList();
 
 ### python
 
-list(filter(lambda p: p.precio > 100, productos))                      
+list(filter(lambda p: p.precio > 100, productos)) 
+
+<img width="651" height="107" alt="image" src="https://github.com/user-attachments/assets/79f71bda-92ed-45c6-b167-255e7aa90060" />
+
 
 **Salida:** Laptop - 850.00, Monitor - 220.00, Silla - 130.00, Escritorio - 310.00
 
@@ -205,6 +211,9 @@ list(filter(lambda p: p.precio > 100, productos))
 
 productos.map(p => s"${p.nombre} -> ${fmt(p.precio * 1.15)}")
 
+<img width="443" height="98" alt="image" src="https://github.com/user-attachments/assets/ed312d80-77dd-4591-b554-a59a5a6eb400" />
+
+
 ### java
 
 productos.stream().map(p -> p.nombre() + " -> " + fmt(p.precio() * 1.15))
@@ -216,6 +225,9 @@ productos.stream().map(p -> p.nombre() + " -> " + fmt(p.precio() * 1.15))
 
 map(lambda p: f"{p.nombre} -> {fmt(p.precio * 1.15)}", productos)
 
+<img width="651" height="91" alt="image" src="https://github.com/user-attachments/assets/e087330e-9a82-41e3-ab7b-2f2a92a12b7a" />
+
+
 **Salida (primeros 4):** Laptop -> 977.50, Mouse -> 17.25, Teclado -> 51.75, Monitor -> 253.00
 
 
@@ -226,6 +238,9 @@ map(lambda p: f"{p.nombre} -> {fmt(p.precio * 1.15)}", productos)
 ### scala
 
 productos.exists(p => p.stock == 0)        productos.forall(p => p.precio > 1)
+
+<img width="443" height="98" alt="image" src="https://github.com/user-attachments/assets/eb14ccab-07e9-42d6-9451-57bef3f878b4" />
+
  
 ### java
 
@@ -237,6 +252,9 @@ productos.stream().anyMatch(p -> p.stock() == 0)    productos.stream().allMatch(
 ### python
 
 any(map(lambda p: p.stock == 0, productos))         all(map(lambda p: p.precio > 1, productos))
+
+<img width="651" height="54" alt="image" src="https://github.com/user-attachments/assets/a9d6cc3d-59e3-43dc-8d08-ad263842d48f" />
+
  
 **Salida:** 
 
@@ -253,6 +271,9 @@ any(map(lambda p: p.stock == 0, productos))         all(map(lambda p: p.precio >
 ### scala
 
 productos.count(p => p.stock < 20)
+
+<img width="210" height="75" alt="image" src="https://github.com/user-attachments/assets/987a9f09-c2e8-43db-9f41-842a4f1737cf" />
+
  
 ### java
 
@@ -264,6 +285,9 @@ productos.stream().filter(p -> p.stock() < 20).count()      // no existe count(c
 ### python
 
 len(list(filter(lambda p: p.stock < 20, productos)))        # no existe count(condición)
+
+<img width="467" height="33" alt="image" src="https://github.com/user-attachments/assets/14fa28e3-a55e-46d4-9e17-11727763f76a" />
+
  
 **Salida:** Productos con poco stock: 4
 
@@ -276,6 +300,9 @@ len(list(filter(lambda p: p.stock < 20, productos)))        # no existe count(co
 ### scala
 
 productos.maxBy(p => p.precio)      productos.minBy(p => p.precio)
+
+<img width="202" height="75" alt="image" src="https://github.com/user-attachments/assets/fc5773b8-3a7d-4ac6-80b1-af3e0abef1c6" />
+
  
 ### java
 
@@ -287,6 +314,9 @@ productos.stream().max((a, b) -> Double.compare(a.precio(), b.precio())).get()  
 ### python
 
 max(productos, key=lambda p: p.precio)      min(productos, key=lambda p: p.precio)
+
+<img width="467" height="53" alt="image" src="https://github.com/user-attachments/assets/e831011d-4659-4d34-9e77-cf758441c191" />
+
 
 **Salida:** 
 
@@ -302,6 +332,9 @@ max(productos, key=lambda p: p.precio)      min(productos, key=lambda p: p.preci
 ### scala
 
 pedidos.flatMap(ped => ped.items)
+
+<img width="754" height="75" alt="image" src="https://github.com/user-attachments/assets/49878b16-5889-4435-8a0e-2907acb62a69" />
+
  
 ### java
 
@@ -313,6 +346,9 @@ pedidos.stream().flatMap(ped -> ped.items().stream()).toList()
 ### python
 
 list(chain.from_iterable(map(lambda ped: ped.items, pedidos)))      # Python no tiene flatMap
+
+<img width="467" height="86" alt="image" src="https://github.com/user-attachments/assets/1e1137d5-c886-4371-b07d-e9ad7de7916d" />
+
  
 **Salida:** Laptop, Mouse, Mouse, Teclado, Mochila, Cuaderno, Lapiz, Mouse y Productos distintos vendidos: 6
 
@@ -327,7 +363,10 @@ list(chain.from_iterable(map(lambda ped: ped.items, pedidos)))      # Python no 
 productos.foldLeft(0.0)((acc, p) => acc + p.precio * p.stock)
 
 productos.scanLeft(0.0)((acc, p) => acc + p.precio * p.stock).tail
- 
+
+<img width="486" height="75" alt="image" src="https://github.com/user-attachments/assets/ce11bc68-6b8f-4a96-99c6-a2a3ef82a1ba" />
+
+
 ### java
 
 productos.stream().reduce(0.0, (acc, p) -> acc + p.precio() * p.stock(), Double::sum)
@@ -342,6 +381,9 @@ productos.stream().reduce(0.0, (acc, p) -> acc + p.precio() * p.stock(), Double:
 reduce(lambda acc, p: acc + p.precio * p.stock, productos, 0.0)
 
 list(accumulate(productos, lambda acc, p: acc + p.precio * p.stock, initial=0.0))[1:]
+
+<img width="467" height="110" alt="image" src="https://github.com/user-attachments/assets/d2bc7dc6-fd8b-48c4-95fd-1c855d29ea5a" />
+
  
 **Salida:** 
 
